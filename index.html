@@ -4,45 +4,24 @@
 <head>
     <meta charset="utf-8" />
     <title>Atomy, kapitola 4</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <table></table>
+    <!-- objekt draw pro vykreslování-->
+    <script src="draw.js"></script>
 
-    <style>
-        td {
-            border: 1px solid black;
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            color: blue;
-        }
-    </style>
+    <!-- objekt board jako stav hrací plochy-->
+    <script src="board.js"></script>
 
-    <script>
-        var table = document.querySelector("table");
+    <!-- objekt player pro práci se vstupem uživatele-->
+    <script src="player.js"></script>
 
-        for (var i = 0; i < 6; i++) {
-            var row = document.createElement("tr");
+    <!-- objekt game pro řízení hry-->
+    <script src="game.js"></script>
 
-            for (var j = 0; j < 6; j++) {
-                var cell = document.createElement("td");
-                row.appendChild(cell);
-            }
-
-            table.appendChild(row);
-        }
-
-        document.addEventListener("click", function (e) {
-            var node = e.target;
-            if (node.nodeName == "TD") { update(node); }
-        });
-
-        var update = function (cell) {
-            cell.innerHTML += "o";
-        }
-    </script>
-
+    <!-- spustit logiku-->
+    <script>Game.start()</script>
 </body>
 
 </html>
